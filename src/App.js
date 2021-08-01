@@ -1,6 +1,7 @@
 import Header from './Components/Header.js'
 import Footer from './Components/Footer.js'
-import Body from './Components/Body.js'
+import Info from './Components/Info.js'
+import About from './Components/About.js'
 import { BrowserRouter, Route } from 'react-router-dom';
 
 
@@ -11,17 +12,17 @@ function App() {
         <Header />
         <Route path="/" exact strict render={
           () => (
-            <Body/>
+            <Info/>
           )
         } />
         <Route path="/Info" exact strict render={
           () => (
-            <Body/>
+            <Info/>
           )
         } />
         <Route path="/About" exact strict render={
           () => (
-            <Body/>
+            <About/>
           )
         } />
         <Footer />
