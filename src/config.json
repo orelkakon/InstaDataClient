@@ -4,6 +4,9 @@
     "protocol":"http",
     "urls":{
         "login": "/login",
-        "logout": "/logout"
+        "logout": "/logout",
+        "getprofile": "/getmyimgprofile",
+        "getmyfollowings": "/getmyfollowings",
+        "getmyfollowers": "/getmyfollowers"
     }
 }

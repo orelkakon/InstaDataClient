@@ -77,21 +77,28 @@ const SignIn = (props) => {
                             width={70}
                         />
                     }
+                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 </LogoutForm>
                 :
                 <LoginForm>
-                    <InputField placeholder="Username" autocomplete="off" id="username" name="username" onChange={e => setUsername(e.target.value)} /><br />
-                    <InputField type="password" placeholder="Password" autocomplete="off" id="password" name="password" onChange={e => setPassword(e.target.value)} /><br /> <br />
+                    <InputField placeholder="Username" autocomplete="off" id="username" name="username" onChange={e => setUsername(e.target.value)} />
+                    <InputField type="password" placeholder="Password" autocomplete="off" id="password" name="password" onChange={e => setPassword(e.target.value)} /> <br />
                     <LoginButton onClick={() => handleLogin(username, password, props.setLoggedIn, setLoader)}>Sign In</LoginButton>
                     {
                         loader &&
-                        <Loader
-                            type="ThreeDots"
-                            color="#fff"
-                            height={70}
-                            width={70}
-                        />
+                        (
+                            <>
+                                <p style={{color:'white'}}>It's takes a few moments...</p>
+                                <Loader
+                                    type="ThreeDots"
+                                    color="#fff"
+                                    height={70}
+                                    width={70}
+                                />
+                            </>
+                        )
                     }
+                    <br/><br/><br/><br/><br/><br/><br/><br/>    
                 </LoginForm>
             }
         </div>

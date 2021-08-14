@@ -1,4 +1,6 @@
 import styled from 'styled-components'
+import searchLogo from './../Assets/search.png'
+import postsLogo from './../Assets/posts.png'
 
 // Header.js
 export const HeaderList = styled.div`
@@ -25,6 +27,14 @@ export const FooterDiv = styled.div`
     width: 100%;
     color: yellow;
 `;
+
+// About.js
+export const logoLink = styled.a`
+    &:hover{
+        transfrom: scale(1.5)
+    }
+`;
+
 
 // SignIn.js
 export const LoginForm = styled.div`
@@ -112,4 +122,58 @@ export const LogoutButton = styled.button`
         z-index: -1;
         background: #0e0e10;
     };
+`;
+
+// Analystics.js
+export const AanalysticsDiv = styled.div`
+    color: white;
+    text-align: center;
+    margin: auto;
+`;
+
+export const InfoBox = styled.button`
+    border: 1px solid gray;
+    border-radius: 5px 5px 5px 5px;
+    height: 120px;
+    width: 140px;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 10px 10px 10px;
+`;
+
+export const PostsBox = styled.button`
+    border: none;
+    background: url(${postsLogo}) no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 60px;
+    height: 60px;
+`;
+
+export const SearchBox = styled.button`
+    border: none;
+    background: url(${searchLogo}) no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+`;
+
+export const KindSearchButton = styled.button`
+    border: ${props => props.show ? 'solid 0.5px white' : 'none' };
+    background: url(${props => props.logo}) no-repeat center;
+    opacity: ${props => props.show ? '1' : '0.5' };
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 100px;
+    height: 100px;
+    margin: 2px;
 `;
