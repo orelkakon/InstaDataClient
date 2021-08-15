@@ -22,9 +22,10 @@ export const HeaderElement = styled.div`
 // Footer.js
 export const FooterDiv = styled.div`
     text-align: center;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     width: 100%;
+    max-height: 100%;
     color: yellow;
 `;
 
@@ -141,6 +142,10 @@ export const InfoBox = styled.button`
     cursor: pointer;
     padding: 10px 10px 10px 10px;
     margin: 10px 10px 10px 10px;
+    opacity: 0.7;
+    &:hover {
+        opacity: 1;
+    }
 `;
 
 export const PostsBox = styled.button`
@@ -151,11 +156,17 @@ export const PostsBox = styled.button`
     -o-background-size: cover;
     background-size: cover;
     width: 60px;
+    cursor: pointer;
     height: 60px;
+    opacity: 0.7;
+    &:hover {
+        opacity: 1;
+    }
 `;
 
 export const SearchBox = styled.button`
     border: none;
+    cursor: pointer;
     background: url(${searchLogo}) no-repeat center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -163,12 +174,17 @@ export const SearchBox = styled.button`
     background-size: cover;
     width: 50px;
     height: 50px;
+    opacity: 0.7;
+    &:hover {
+        opacity: 1;
+    }
 `;
 
 export const KindSearchButton = styled.button`
+    cursor: pointer;
     border: ${props => props.show ? 'solid 0.5px white' : 'none' };
     background: url(${props => props.logo}) no-repeat center;
-    opacity: ${props => props.show ? '1' : '0.5' };
+    opacity: ${props => props.show ? '1' : '0.3' };
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -176,4 +192,62 @@ export const KindSearchButton = styled.button`
     width: 100px;
     height: 100px;
     margin: 2px;
+    &:hover {
+        opacity: 0.75;
+    }
 `;
+
+export const SearchInput = styled.input`
+    width: 300px;
+    height: 30px;
+    padding-left: 5px;
+    font-size: 20px;
+    border:none;
+    border-radius: 5px;
+    margin: 10px;
+    ::placeholder {
+        color: gray;
+    };
+`;
+
+export const SearchButtons = styled.button`
+    width: 75px;
+    height: 30px;
+    background-color: white;
+    font-size: 20px;
+    border:none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    &:hover{
+        background-color: black;
+        color: white;
+        border: solid 1px white;
+    }
+`;
+
+export const SearchResultDiv = styled.div`
+    display: flex;
+    justify-content:center;
+    margin: auto;
+    flex-direction: column;
+    align-items: center
+`;
+
+export const SearchResult = styled.button`
+    border: solid 2px white;
+    box-shadow: 3px 3px 5px gray;
+    width: auto;
+    height: 34px;
+    border-radius: 15px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    &:hover{
+        background-color: black;
+        color: white;
+        border: solid 1px white;
+    }
+`;
+
