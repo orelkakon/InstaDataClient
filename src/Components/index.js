@@ -145,6 +145,7 @@ export const InfoBox = styled.button`
     opacity: 0.7;
     &:hover {
         opacity: 1;
+        transform: scale(1.1)
     }
 `;
 
@@ -161,6 +162,7 @@ export const PostsBox = styled.button`
     opacity: 0.7;
     &:hover {
         opacity: 1;
+        transform: scale(1.1)
     }
 `;
 
@@ -177,6 +179,7 @@ export const SearchBox = styled.button`
     opacity: 0.7;
     &:hover {
         opacity: 1;
+        transform: scale(1.1)
     }
 `;
 
@@ -194,6 +197,7 @@ export const KindSearchButton = styled.button`
     margin: 2px;
     &:hover {
         opacity: 0.75;
+        transform: scale(1.1)
     }
 `;
 
@@ -211,18 +215,20 @@ export const SearchInput = styled.input`
 `;
 
 export const SearchButtons = styled.button`
-    width: 75px;
+    width: 90px;
     height: 30px;
     background-color: white;
     font-size: 20px;
     border:none;
     border-radius: 5px;
     margin: 5px;
+    padding: 2px;
     cursor: pointer;
     &:hover{
         background-color: black;
         color: white;
         border: solid 1px white;
+        transform: scale(1.1)
     }
 `;
 
@@ -248,6 +254,25 @@ export const SearchResult = styled.button`
         background-color: black;
         color: white;
         border: solid 1px white;
+        transform: scale(1.1)
     }
 `;
 
+export const PostCatagoryBox = styled.button`
+    border: 2px solid ${props => props.positive ? 'green' : 'red'};
+    border-radius: 5px 5px 5px 5px;
+    height: 165px;
+    width: 165px;
+    color: ${props => props.positive ? 'green' : 'red'};
+    font-size: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px 5px 5px 5px;
+    margin: 10px 10px 10px 10px;
+    opacity: 0.8;
+    &:hover {
+        opacity: 1;
+        box-shadow: 2px 3px ${props => props.positive ? 'green' : 'red'};
+        transform: scale(1.1)
+    }
+`;

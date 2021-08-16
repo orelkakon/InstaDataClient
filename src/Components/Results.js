@@ -19,7 +19,7 @@ const Results = (props) => {
             }
             {
                 props.results.names.map((result, index) => {
-                    return (<SearchResult onClick={() => handleLinksUrl(result, props.results.ids[index])}>{result} {props.results.privates && props.results.privates[index] && '🔒'}</SearchResult>)
+                    return (<SearchResult key={index} onClick={() => handleLinksUrl(result, props.results.ids[index])}>{result} {props.results.privates && props.results.privates[index] && '🔒'}</SearchResult>)
                 })
             }
         </div>

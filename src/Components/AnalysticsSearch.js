@@ -75,6 +75,9 @@ const AnalysticsSearch = () => {
                 })
                 break
             }
+            default: {
+                break
+            }
         }
         sessionStorage.setItem('inputSearch', queryString)
         setResults(result.data)
