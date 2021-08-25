@@ -17,7 +17,7 @@ const About = () => {
                     Full stack developer with a lot experience in Web development, System design and Complex application. <br />
                     Love to solve problems, design systems, learn new things and share my experience with others. <br />
                 </p>
-                <br /><br /><br /><br /><br /><br /><br />
+                <br /><br />
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
                     <a href="https://www.instagram.com/orelkakon/" style={{ textDecoration: "none", fontSize: "33px", color: "#fff", paddingRight: '2px'  }}> <img src={instaLogo} alt="instaLogo" height="33px" /></a>
                     <a href="mailto:orelkak@post.bgu.ac.il" style={{ textDecoration: "none", fontSize: "33px", color: "#fff", paddingRight: '6px' }}> <img src={mailLogo} alt="phoneLogo" height="30px" /></a>
@@ -25,6 +25,7 @@ const About = () => {
                     <a href="https://il.linkedin.com/in/orel-kakon-323928218" style={{ textDecoration: "none", fontSize: "33px", color: "#fff" }}> <img src={linkedinLogo} alt="linkedinLogo" height="36px" /></a>
 
                 </div>
+                <br/><br/><br/><br/><br/>
             </div>
         </div>
     )

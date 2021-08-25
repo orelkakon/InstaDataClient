@@ -77,7 +77,7 @@ const SignIn = (props) => {
                             width={70}
                         />
                     }
-                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                 </LogoutForm>
                 :
                 <LoginForm>
@@ -97,8 +97,8 @@ const SignIn = (props) => {
                                 />
                             </>
                         )
-                    }
-                    <br/><br/><br/><br/><br/><br/><br/><br/>    
+                    } 
+                    <br/><br/><br/><br/><br/><br/><br/><br/>
                 </LoginForm>
             }
         </div>

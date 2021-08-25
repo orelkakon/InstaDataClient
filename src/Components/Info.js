@@ -9,6 +9,7 @@ const Info = () => {
                 who is not following you back, detect blockers, view your fans and best friends and much more cool things 😃<br/> <br/>
                 The best and most accurate followers analystics tool for Instagram 👌
             </p>
+            <br/><br/><br/>
         </div>
     )
 }

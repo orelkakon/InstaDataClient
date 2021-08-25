@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import searchLogo from './../Assets/search.png'
 import postsLogo from './../Assets/posts.png'
+import xLogo from './../Assets/x.png'
 
 // Header.js
 export const HeaderList = styled.div`
@@ -22,7 +23,7 @@ export const HeaderElement = styled.div`
 // Footer.js
 export const FooterDiv = styled.div`
     text-align: center;
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
     max-height: 100%;
@@ -32,7 +33,7 @@ export const FooterDiv = styled.div`
 // About.js
 export const logoLink = styled.a`
     &:hover{
-        transfrom: scale(1.5)
+        transform: scale(1.5)
     }
 `;
 
@@ -237,11 +238,13 @@ export const SearchResultDiv = styled.div`
     justify-content:center;
     margin: auto;
     flex-direction: column;
-    align-items: center
+    align-items: center;
 `;
 
 export const SearchResult = styled.button`
     border: solid 2px white;
+    background-color: white;
+    color: black;
     box-shadow: 3px 3px 5px gray;
     width: auto;
     height: 34px;
@@ -253,7 +256,6 @@ export const SearchResult = styled.button`
     &:hover{
         background-color: black;
         color: white;
-        border: solid 1px white;
         transform: scale(1.1)
     }
 `;
@@ -261,8 +263,8 @@ export const SearchResult = styled.button`
 export const PostCatagoryBox = styled.button`
     border: 2px solid ${props => props.positive ? 'green' : 'red'};
     border-radius: 5px 5px 5px 5px;
-    height: 165px;
-    width: 165px;
+    height: 170px;
+    width: 170px;
     color: ${props => props.positive ? 'green' : 'red'};
     font-size: 20px;
     background-color: transparent;
@@ -275,4 +277,18 @@ export const PostCatagoryBox = styled.button`
         box-shadow: 2px 3px ${props => props.positive ? 'green' : 'red'};
         transform: scale(1.1)
     }
+`;
+
+
+export const XButton = styled.button`
+    border: none;
+    cursor: pointer;
+    background: url(${xLogo}) no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 20px;
+    height: 20px;
+        
 `;

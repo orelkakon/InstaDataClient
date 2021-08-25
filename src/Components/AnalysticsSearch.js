@@ -87,7 +87,7 @@ const AnalysticsSearch = () => {
 
     return (
         <AanalysticsDiv>
-            <h2>{sessionStorage.getItem('session')}</h2>
+            <h2 style={{ marginBottom: "95px"}}>{sessionStorage.getItem('session')}</h2>
             <KindSearchButton onClick={() => handleKind("users")} show={searchChosen === "users"} logo={userLogo} />
             <KindSearchButton onClick={() => handleKind("locations")} show={searchChosen === "locations"} logo={locationLogo} />
             <KindSearchButton onClick={() => handleKind("hashtags")} show={searchChosen === "hashtags"} logo={hashtagLogo} />

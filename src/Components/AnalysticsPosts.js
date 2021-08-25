@@ -31,6 +31,7 @@ const AnalysticPosts = () => {
                 <h5>My Least Commented posts<br /></h5>
                 <img style={{height:'50px', width:'50px', display:'inline-block'}} src={badLogo} alt="good"/>
             </PostCatagoryBox>
+            <br/>
         </AanalysticsDiv>
     );
 };

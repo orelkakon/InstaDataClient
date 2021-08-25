@@ -5,6 +5,8 @@ import { getAreNotFollowingBack, getINotFollowingBack, getMutualFollows } from '
 import { InfoBox, AanalysticsDiv, SearchBox, PostsBox } from './index'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
+import Modal from 'react-modal';
+import {XButton, SearchResult} from './index'
 
 // const getProfileImage = async (setSrcImg) => {
 //     const username = sessionStorage.getItem('session')
@@ -18,6 +20,20 @@ import Loader from "react-loader-spinner";
 //     setSrcImg(result.data)
 //     return
 // }
+const customStyles = {
+    content: {
+        top: '50%',
+        left: '50%',
+        right: 'auto',
+        bottom: 'auto',
+        width:'75%',
+        height: '60%',
+        marginRight: '-50%',
+        transform: 'translate(-50%, -50%)',
+        backgroundColor: 'black',
+        color: 'white'
+    },
+};
 
 const getStatistics = async (setFollowings, setFollowers, setAreNotFollowingBack, setINotFollowingBack, setMutualFollows, setLoader) => {
     const username = sessionStorage.getItem('session')
@@ -54,12 +70,38 @@ const Analystics = () => {
     const [INotFollowingBack, setINotFollowingBack] = useState([])
     const [mutualFollows, setMutualFollows] = useState([])
     const [loader, setLoader] = useState(true)
+    const [modalIsOpen, setIsOpen] = useState(false);
+    const [modalGroup, setModalGroup] = useState([])
 
+    function openModal(kind) {
+        if(kind === "following")
+            setModalGroup(followings)
+        else if(kind === "followers")
+            setModalGroup(followers)
+        else if(kind === "AreNotFollowingBack")
+            setModalGroup(AreNotFollowingBack)
+        else if(kind === "INotFollowingBack")
+            setModalGroup(INotFollowingBack)
+        else // mutual
+            setModalGroup(mutualFollows)
+        setIsOpen(true);
+    }
+
+    function closeModal() {
+        setIsOpen(false);
+    }
     useEffect(() => {
         getStatistics(setFollowings, setFollowers, setAreNotFollowingBack, setINotFollowingBack, setMutualFollows, setLoader);
     }, [])
     return (
         <AanalysticsDiv>
+            <h2>{sessionStorage.getItem('session')}</h2>
+            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                <PostsBox onClick={() => window.location.href = "/Analystics/posts"} />
+
+                <SearchBox onClick={() => window.location.href = "/Analystics/search"} />
+            </div>
+            <br />
             <div>
                 {
                     loader &&
@@ -71,32 +113,39 @@ const Analystics = () => {
                     />
                 }
             </div>
-            <h2>{sessionStorage.getItem('session')}</h2>
-            <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-                <PostsBox onClick={() => window.location.href="/Analystics/posts"}/>
-
-                <SearchBox onClick={() => window.location.href="/Analystics/search"}/>
+            <div>
+                <Modal
+                    isOpen={modalIsOpen}
+                    onRequestClose={closeModal}
+                    style={customStyles}
+                    contentLabel="users modal"
+                >
+                    <XButton onClick={closeModal}/>
+                    <br/>
+                    {
+                        modalGroup && modalGroup.map(element => <SearchResult onClick={() => window.open(`https://www.instagram.com/${element}/`)}>{element}</SearchResult>)
+                    }
+                </Modal>
             </div>
-            <br />
-            <InfoBox>
+            <InfoBox onClick={() => openModal('following')}>
                 <h5>Following<br /></h5>
                 <h3>{followings.length}</h3>
             </InfoBox>
-            <InfoBox>
+            <InfoBox onClick={() => openModal('followers')}>
                 <h5>Followers<br /></h5>
                 <h3>{followers.length}</h3>
             </InfoBox>
             <br />
-            <InfoBox>
+            <InfoBox onClick={() => openModal('AreNotFollowingBack')}>
                 <h5>Are Not Following Back<br /></h5>
                 <h3>{AreNotFollowingBack.length}</h3>
             </InfoBox>
-            <InfoBox>
+            <InfoBox onClick={() => openModal('INotFollowingBack')}>
                 <h5>I'm Not Following Back<br /></h5>
                 <h3>{INotFollowingBack.length}</h3>
             </InfoBox>
             <br />
-            <InfoBox>
+            <InfoBox onClick={() => openModal('mutual')}>
                 <h5>Mutual Friends<br /></h5>
                 <h3>{mutualFollows.length}</h3>
             </InfoBox>

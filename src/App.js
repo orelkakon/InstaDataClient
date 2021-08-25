@@ -29,7 +29,7 @@ export const notify = async (msg) => {
 function App() {
   const [loggedIn, setLoggedIn] = useState(sessionStorage.getItem('session'))
   return (
-    <div className="App">
+    <>
       <ToastContainer />
       <BrowserRouter>
         <Header loggedIn={loggedIn}/>
@@ -65,7 +65,7 @@ function App() {
         } />
         <Footer />
       </BrowserRouter>
-    </div>
+    </>
   );
 }
 
