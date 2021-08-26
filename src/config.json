@@ -1,5 +1,5 @@
 {
-    "host":"192.168.1.21",
+    "host":"192.168.1.38",
     "port":"5000",
     "protocol":"http",
     "urls":{
@@ -10,6 +10,7 @@
         "getmyfollowers": "/getmyfollowers",
         "gettopsearch":"/gettopsearch",
         "gettoplocation":"/gettoplocation",
-        "gettophashtag": "/gettophashtag"
+        "gettophashtag": "/gettophashtag",
+        "getmypostsdata":"/getmyposts"
     }
 }

@@ -6,6 +6,7 @@ import SignIn from './Components/SignIn.js'
 import Analystics from './Components/Analystics.js'
 import AnalysticsSearch from './Components/AnalysticsSearch.js'
 import AnalysticsPosts from './Components/AnalysticsPosts.js'
+import AnalysticsStar from './Components/AnalysticsStar.js'
 
 import React, { useState } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -56,6 +57,11 @@ function App() {
         <Route path="/Analystics/posts" exact strict render={
           () => (
             <AnalysticsPosts />
+          )
+        } />
+        <Route path="/Analystics/stars" exact strict render={
+          () => (
+            <AnalysticsStar />
           )
         } />
         <Route path="/Analystics/search" exact strict render={

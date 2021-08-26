@@ -15,7 +15,7 @@ const Results = (props) => {
         <div>
             {
                 props.results.names.length !== 0 &&
-                <h3 style={{ color: "white" }}> Results of search - {sessionStorage.getItem('inputSearch')}</h3>
+                <h3 style={{ color: "white", fontFamily:'cursive' }}> Results of search - {sessionStorage.getItem('inputSearch')}</h3>
             }
             {
                 props.results.names.map((result, index) => {

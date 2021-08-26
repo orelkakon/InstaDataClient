@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 import searchLogo from './../Assets/search.png'
 import postsLogo from './../Assets/posts.png'
+import starLogo from './../Assets/star.png'
 import xLogo from './../Assets/x.png'
 
 // Header.js
@@ -167,6 +168,23 @@ export const PostsBox = styled.button`
     }
 `;
 
+export const StarBox = styled.button`
+    border: none;
+    background: url(${starLogo}) no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 60px;
+    cursor: pointer;
+    height: 60px;
+    opacity: 0.7;
+    &:hover {
+        opacity: 1;
+        transform: scale(1.1)
+    }
+`;
+
 export const SearchBox = styled.button`
     border: none;
     cursor: pointer;
@@ -208,8 +226,9 @@ export const SearchInput = styled.input`
     padding-left: 5px;
     font-size: 20px;
     border:none;
+    margin: auto;
+    margin-bottom: 10px;
     border-radius: 5px;
-    margin: 10px;
     ::placeholder {
         color: gray;
     };
@@ -242,12 +261,13 @@ export const SearchResultDiv = styled.div`
 `;
 
 export const SearchResult = styled.button`
-    border: solid 2px white;
-    background-color: white;
+    border: solid 2px ${props => props.isSearched ? 'yellow' : 'white'};
+    background-color: ${props => props.isSearched ? 'yellow' : 'white'};
     color: black;
     box-shadow: 3px 3px 5px gray;
     width: auto;
-    height: 34px;
+    min-height: 34px;
+    
     border-radius: 15px;
     margin: 5px;
     cursor: pointer;
@@ -291,4 +311,19 @@ export const XButton = styled.button`
     width: 20px;
     height: 20px;
         
+`;
+export const UsersDiv = styled.div`
+    text-align: center;
+    margin: auto;
+`;
+
+export const PostBlock = styled.div`
+    display: flex;
+    flex-direction: column;
+    border: solid 2px ${props => props.positive ? 'green' : 'red' };
+    border-radius: 20px;
+    box-shadow: 5px 5px ${props => props.positive ? 'lightgreen' : 'lightcoral' };
+    margin-bottom: 10px;
+    text-align: center;
+    margin: auto;
 `;
