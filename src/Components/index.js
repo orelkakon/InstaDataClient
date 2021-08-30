@@ -204,9 +204,9 @@ export const SearchBox = styled.button`
 
 export const KindSearchButton = styled.button`
     cursor: pointer;
-    border: ${props => props.show ? 'solid 0.5px white' : 'none' };
+    border: ${props => props.show ? 'solid 0.5px white' : 'none'};
     background: url(${props => props.logo}) no-repeat center;
-    opacity: ${props => props.show ? '1' : '0.3' };
+    opacity: ${props => props.show ? '1' : '0.3'};
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -320,10 +320,59 @@ export const UsersDiv = styled.div`
 export const PostBlock = styled.div`
     display: flex;
     flex-direction: column;
-    border: solid 2px ${props => props.positive ? 'green' : 'red' };
+    border: solid 2px ${props => props.positive ? 'green' : 'red'};
     border-radius: 20px;
-    box-shadow: 5px 5px ${props => props.positive ? 'lightgreen' : 'lightcoral' };
+    box-shadow: 5px 5px ${props => props.positive ? 'lightgreen' : 'lightcoral'};
     margin-bottom: 10px;
     text-align: center;
     margin: auto;
+`;
+
+export const StarButtonBox = styled.button`
+    border: 2px solid yellow;
+    border-radius: 5px 5px 5px 5px;
+    height: 120px;
+    width: 170px;
+    color: yellow;
+    font-size: 20px;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 5px 5px 5px 5px;
+    margin: 10px 10px 10px 10px;
+    opacity: 0.8;
+    &:hover {
+        opacity: 1;
+        box-shadow: 2px 3px yellow;
+        transform: scale(1.1)
+    }
+`;
+
+
+export const UserDiv = styled.div`
+    display: flex;
+    flex-direction: column;
+    border: solid 1.8px yellow;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+    height: 50px;
+    font-size: large;
+    justify-content: center;
+    box-shadow: 5px 5px #FFFF66;
+    margin-bottom: 10px;
+    text-align: center;
+    margin: auto;
+    cursor: pointer;
+    &:hover{
+        color: black;
+        background-color: yellow;
+    }
+`;
+
+export const AUserRef = styled.a`
+    text-decoration: none;
+    color: white;
+    &:hover{
+        color: black;
+    }
 `;

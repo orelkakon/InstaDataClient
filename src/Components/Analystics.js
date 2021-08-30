@@ -63,6 +63,8 @@ const getStatistics = async (setFollowings, setFollowers, setAreNotFollowingBack
     return
 }
 
+
+
 const Analystics = () => {
     // const [srcImg, setSrcImg] = useState('')
     const [followings, setFollowings] = useState([])

@@ -40,9 +40,6 @@ const geyMyPostsData = async (setLikes, setComments, setPopluar, setLoader) => {
     setLikes(topLikes)
     const topPopluar = getMyMostPopluar(postsData.data)
     setPopluar(topPopluar)
-    console.log(topComments);
-    console.log(topLikes);
-    console.log(topPopluar);
 
     setLoader(false)
     return;
@@ -68,7 +65,7 @@ const AnalysticPosts = () => {
 
     const openModal = (kind) => {
         if (kind === "MyMostPopularPosts") {
-            setModalGroup(popluar.reverse().slice(0, top))
+            setModalGroup([...popluar].reverse().slice(0, top))
             setModalTitle("My Most Popular Posts")
         }
         else if (kind === "MyLeastPopularPosts") {
@@ -76,7 +73,7 @@ const AnalysticPosts = () => {
             setModalTitle("My Least Popular Posts")
         }
         else if (kind === "MyMostLikedPosts") {
-            setModalGroup(likes.reverse().slice(0, top))
+            setModalGroup([...likes].reverse().slice(0, top))
             setModalTitle("My Most Liked Posts")
         }
         else if (kind === "MyLeastLikedPosts") {
@@ -84,7 +81,7 @@ const AnalysticPosts = () => {
             setModalTitle("My Least Liked Posts")
         }
         else if (kind === "MyMostCommentedPosts") {
-            setModalGroup(comments.reverse().slice(0, top))
+            setModalGroup([...comments].reverse().slice(0, top))
             setModalTitle("My Most Commented Posts")
         }
         else if (kind === "MyLeastCommentedPosts") {
@@ -110,20 +107,23 @@ const AnalysticPosts = () => {
                 <UsersDiv>
                     <div>
                         {
-                            loader &&
-                            <Loader
-                                type="Oval"
-                                color="#fff"
-                                height={50}
-                                width={50}
-                            />
+                            loader ?
+                                <Loader
+                                    type="Oval"
+                                    color="#fff"
+                                    height={50}
+                                    width={50}
+                                /> :
+                                <>
+                                    <h2 style={{ textDecoration: "underline", fontWeight: "bold", color: isPositive() ? 'green' : 'red' }}>{modalTitle}</h2>
+                                    <br />
+                                    {
+                                        modalGroup && modalGroup.map((post, index) => <><Post key={index} url={post[0]} likes={post[1]} comments={post[2]} positive={isPositive()} postKind={isLikeOrCommentOrBoth()} /><br /></>)
+                                    }
+                                </>
                         }
                     </div>
-                    <h2 style={{ textDecoration: "underline", fontWeight: "bold", color: isPositive() ? 'green' : 'red' }}>{modalTitle}</h2>
-                    <br />
-                    {
-                        modalGroup && modalGroup.map((post, index) => <><Post key={index} url={post[0]} likes={post[1]} comments={post[2]} positive={isPositive()} postKind={isLikeOrCommentOrBoth()} /><br /></>)
-                    }
+
                 </UsersDiv>
             </Modal>
             <h2 style={{ fontFamily: 'cursive' }}>{sessionStorage.getItem('session')}</h2>
