@@ -12,6 +12,7 @@
         "gettoplocation":"/gettoplocation",
         "gettophashtag": "/gettophashtag",
         "getmypostsdata":"/getmyposts",
-        "getmydataposts":"/getmydataposts"
+        "getmydataposts":"/getmydataposts",
+        "getSimilarUsers": "/getsimilarusers"
     }
 }

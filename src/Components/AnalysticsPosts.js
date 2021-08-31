@@ -34,11 +34,11 @@ const geyMyPostsData = async (setLikes, setComments, setPopluar, setLoader) => {
             username: username
         }
     })
-    const topComments = getMyMostCommented(postsData.data)
+    const topComments = getMyMostCommented([...postsData.data])
     setComments(topComments)
-    const topLikes = getMyMostLiked(postsData.data)
+    const topLikes = getMyMostLiked([...postsData.data])
     setLikes(topLikes)
-    const topPopluar = getMyMostPopluar(postsData.data)
+    const topPopluar = getMyMostPopluar([...postsData.data])
     setPopluar(topPopluar)
 
     setLoader(false)
@@ -65,27 +65,27 @@ const AnalysticPosts = () => {
 
     const openModal = (kind) => {
         if (kind === "MyMostPopularPosts") {
-            setModalGroup([...popluar].reverse().slice(0, top))
+            setModalGroup([...popluar].slice(0, top))
             setModalTitle("My Most Popular Posts")
         }
         else if (kind === "MyLeastPopularPosts") {
-            setModalGroup(popluar.slice(0, top))
+            setModalGroup([...popluar].reverse().slice(0, top))
             setModalTitle("My Least Popular Posts")
         }
         else if (kind === "MyMostLikedPosts") {
-            setModalGroup([...likes].reverse().slice(0, top))
+            setModalGroup([...likes].slice(0, top))
             setModalTitle("My Most Liked Posts")
         }
         else if (kind === "MyLeastLikedPosts") {
-            setModalGroup(likes.slice(0, top))
+            setModalGroup([...likes].reverse().slice(0, top))
             setModalTitle("My Least Liked Posts")
         }
         else if (kind === "MyMostCommentedPosts") {
-            setModalGroup([...comments].reverse().slice(0, top))
+            setModalGroup([...comments].slice(0, top))
             setModalTitle("My Most Commented Posts")
         }
         else if (kind === "MyLeastCommentedPosts") {
-            setModalGroup(comments.slice(0, top))
+            setModalGroup([...comments].reverse().slice(0, top))
             setModalTitle("My Least Commented Posts")
         }
         setIsOpen(true);
@@ -123,12 +123,11 @@ const AnalysticPosts = () => {
                                 </>
                         }
                     </div>
-
                 </UsersDiv>
             </Modal>
-            <h2 style={{ fontFamily: 'cursive' }}>{sessionStorage.getItem('session')}</h2>
+            <h2>{sessionStorage.getItem('session')}</h2>
             <label>Choose a Top search </label>
-            <select style={{ width: '50px', height: '30px', color: 'white', backgroundColor: 'black', fontSize: '17px' }} name="top" id="tops" onChange={(e) => setTop(Number(e.target.value))}>
+            <select style={{ width: '60px', height: '30px', color: 'white', backgroundColor: 'black', fontSize: '17px' }} name="top" id="tops" onChange={(e) => setTop(Number(e.target.value))}>
                 <option value="1">1</option>
                 <option value="3">3</option>
                 <option value="5">5</option>

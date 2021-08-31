@@ -112,9 +112,9 @@ const AnalysticsStar = () => {
                     </div>
                 </UsersDiv>
             </Modal>
-            <h2 style={{ fontFamily: 'cursive' }}>{sessionStorage.getItem('session')}</h2>
+            <h2>{sessionStorage.getItem('session')}</h2>
             <label>Choose a Top search </label>
-            <select style={{ width: '50px', height: '30px', color: 'white', backgroundColor: 'black', fontSize: '17px' }} name="top" id="tops" onChange={(e) => setTop(Number(e.target.value))}>
+            <select style={{ width: '60px', height: '30px', color: 'white', backgroundColor: 'black', fontSize: '17px' }} name="top" id="tops" onChange={(e) => setTop(Number(e.target.value))}>
                 <option value="1">1</option>
                 <option value="3">3</option>
                 <option value="5">5</option>

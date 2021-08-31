@@ -36,6 +36,19 @@ const customStyles = {
     },
 };
 
+const getSimilar = async(setSimilarUser) => {
+    const username = sessionStorage.getItem('session')
+    const similarList = await axios({
+        method: 'post',
+        url: `${config.protocol}://${config.host}:${config.port}${config.urls.getSimilarUsers}`,
+        data: {
+            username: username
+        }
+    })
+    setSimilarUser(similarList.data)
+    return
+}
+
 const getStatistics = async (setFollowings, setFollowers, setAreNotFollowingBack, setINotFollowingBack, setMutualFollows, setLoader) => {
     const username = sessionStorage.getItem('session')
     const result1 = await axios({
@@ -72,6 +85,7 @@ const Analystics = () => {
     const [AreNotFollowingBack, setAreNotFollowingBack] = useState([])
     const [INotFollowingBack, setINotFollowingBack] = useState([])
     const [mutualFollows, setMutualFollows] = useState([])
+    const [similarUser, setSimilarUser] = useState([])
     const [loader, setLoader] = useState(true)
     const [modalIsOpen, setIsOpen] = useState(false);
     const [modalGroup, setModalGroup] = useState([])
@@ -95,6 +109,10 @@ const Analystics = () => {
             setModalGroup(INotFollowingBack)
             setModalTitle("Im Not Following Back")
         }
+        else if(kind === "Similar"){
+            setModalGroup(similarUser)
+            setModalTitle("Similar Users")
+        }
         else { // mutual
             setModalGroup(mutualFollows)
             setModalTitle(kind)
@@ -113,10 +131,11 @@ const Analystics = () => {
 
     useEffect(() => {
         getStatistics(setFollowings, setFollowers, setAreNotFollowingBack, setINotFollowingBack, setMutualFollows, setLoader);
+        getSimilar(setSimilarUser)
     }, [])
     return (
         <AanalysticsDiv>
-            <h2 style={{fontFamily:'cursive'}}>{sessionStorage.getItem('session')}</h2>
+            <h2>{sessionStorage.getItem('session')}</h2>
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
                 <PostsBox onClick={() => window.location.href = "/Analystics/posts"} />
                 <StarBox onClick={() => window.location.href = "/Analystics/stars"} />
@@ -174,6 +193,10 @@ const Analystics = () => {
             <InfoBox onClick={() => openModal('Mutual')}>
                 <h3>Mutual Friends<br /></h3>
                 <h1>{mutualFollows.length}</h1>
+            </InfoBox>
+            <InfoBox onClick={() => openModal('Similar')}>
+                <h3>Suggested For You<br /></h3>
+                <h1>{similarUser.length}</h1>
             </InfoBox>
         </AanalysticsDiv>
 
