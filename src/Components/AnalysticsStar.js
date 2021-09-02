@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { AanalysticsDiv, StarButtonBox } from './index'
+import { AanalysticsDiv, StarButtonBox, BackBox } from './index'
 import Modal from 'react-modal';
 import { XButton, UsersDiv } from './index'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
@@ -83,6 +83,8 @@ const AnalysticsStar = () => {
     }, [])
     return (
         <AanalysticsDiv>
+            <BackBox onClick={() => window.location.href = "/Analystics"} />
+            <br />
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
@@ -105,7 +107,7 @@ const AnalysticsStar = () => {
                                     <h2 style={{ textDecoration: "underline", fontWeight: "bold", color: 'yellow' }}>{modalTitle}</h2>
                                     <br />
                                     {
-                                        modalGroup && modalGroup.map((user, index) => <><User key={index} name={user[0]} value={user[1]}/><br /></>)
+                                        modalGroup && modalGroup.map((user, index) => <><User key={index} name={user[0]} value={user[1]} /><br /></>)
                                     }
                                 </>
                         }

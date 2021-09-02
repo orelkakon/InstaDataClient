@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AanalysticsDiv, KindSearchButton, SearchInput, SearchButtons, SearchResultDiv } from './index'
+import { AanalysticsDiv, KindSearchButton, SearchInput, SearchButtons, SearchResultDiv, BackBox } from './index'
 import hashtagLogo from './../Assets/hashtag.png'
 import axios from 'axios'
 import config from './../config.json'
@@ -87,6 +87,8 @@ const AnalysticsSearch = () => {
 
     return (
         <AanalysticsDiv>
+            <BackBox onClick={() => window.location.href = "/Analystics"} />
+            <br/>
             <h2 style={{ marginBottom: "95px"}}>{sessionStorage.getItem('session')}</h2>
             <KindSearchButton onClick={() => handleKind("users")} show={searchChosen === "users"} logo={userLogo} />
             <KindSearchButton onClick={() => handleKind("locations")} show={searchChosen === "locations"} logo={locationLogo} />

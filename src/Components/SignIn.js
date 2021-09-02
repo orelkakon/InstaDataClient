@@ -67,17 +67,20 @@ const SignIn = (props) => {
             <img src={instaDataLogo} alt="instaDataLogo" height="280px" width="350px" />
             {props.loggedIn ?
                 <LogoutForm>
+                    <br /> 
+                    <br /> 
                     <LogoutButton onClick={() => handleLogout(sessionStorage.getItem('session'), props.setLoggedIn, setLoader)}>Logout</LogoutButton>
                     {
-                        loader &&
+                        loader ?
                         <Loader
-                            type="ThreeDots"
+                            type="Oval"
                             color="#fff"
                             height={70}
                             width={70}
-                        />
+                        /> :
+                        <><br/><br/><br/><br/></>
                     }
-                    <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+                    <br/><br/><br/><br/><br/><br/>
                 </LogoutForm>
                 :
                 <LoginForm>
@@ -85,20 +88,22 @@ const SignIn = (props) => {
                     <InputField type="password" placeholder="Password" autocomplete="off" id="password" name="password" onChange={e => setPassword(e.target.value)} /> <br />
                     <LoginButton onClick={() => handleLogin(username, password, props.setLoggedIn, setLoader)}>Sign In</LoginButton>
                     {
-                        loader &&
+                        loader ?
                         (
                             <>
                                 <p style={{color:'white'}}>It's takes a few moments...</p>
                                 <Loader
-                                    type="ThreeDots"
+                                    type="Oval"
                                     color="#fff"
                                     height={70}
                                     width={70}
                                 />
                             </>
+                        ) : (
+                        <><br/><br/><br/><br/></>
                         )
                     } 
-                    <br/><br/><br/><br/><br/><br/><br/><br/>
+                    <br/><br/><br/><br/>
                 </LoginForm>
             }
         </div>

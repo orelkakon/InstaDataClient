@@ -2,6 +2,8 @@ import styled from 'styled-components'
 import searchLogo from './../Assets/search.png'
 import postsLogo from './../Assets/posts.png'
 import starLogo from './../Assets/star.png'
+import refLogo from './../Assets/refresh.png'
+import backLogo from './../Assets/back.png'
 import xLogo from './../Assets/x.png'
 
 // Header.js
@@ -131,7 +133,6 @@ export const LogoutButton = styled.button`
 export const AanalysticsDiv = styled.div`
     color: white;
     text-align: center;
-    margin: auto;
 `;
 
 export const InfoBox = styled.button`
@@ -168,6 +169,23 @@ export const PostsBox = styled.button`
     }
 `;
 
+export const RefBox = styled.button`
+    border: none;
+    background: url(${refLogo}) no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 25px;
+    height: 25px;
+    opacity: 0.7;
+    cursor: pointer;
+    &:hover {
+        opacity: 1;
+        transform: scale(1.1)
+    }
+`;
+
 export const StarBox = styled.button`
     border: none;
     background: url(${starLogo}) no-repeat center;
@@ -196,6 +214,25 @@ export const SearchBox = styled.button`
     width: 50px;
     height: 50px;
     opacity: 0.7;
+    &:hover {
+        opacity: 1;
+        transform: scale(1.1)
+    }
+`;
+
+export const BackBox = styled.button`
+    
+    float: left;
+    border: none;
+    background: url(${backLogo}) no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    opacity: 0.7;
+    cursor: pointer;
     &:hover {
         opacity: 1;
         transform: scale(1.1)

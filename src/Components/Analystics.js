@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios'
 import config from './../config.json'
 import { getAreNotFollowingBack, getINotFollowingBack, getMutualFollows } from './utils'
-import { InfoBox, AanalysticsDiv, SearchBox, PostsBox, UsersDiv, StarBox, SearchInput } from './index'
+import { InfoBox, AanalysticsDiv, SearchBox, PostsBox, UsersDiv, StarBox, SearchInput, RefBox } from './index'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from "react-loader-spinner";
 import Modal from 'react-modal';
@@ -36,7 +36,7 @@ const customStyles = {
     },
 };
 
-const getSimilar = async(setSimilarUser) => {
+const getSimilar = async (setSimilarUser) => {
     const username = sessionStorage.getItem('session')
     const similarList = await axios({
         method: 'post',
@@ -91,7 +91,7 @@ const Analystics = () => {
     const [modalGroup, setModalGroup] = useState([])
     const [modalTitle, setModalTitle] = useState("")
     const [searchUser, setSearchUser] = useState("")
-    
+
     function openModal(kind) {
         if (kind === "following") {
             setModalGroup(followings)
@@ -109,7 +109,7 @@ const Analystics = () => {
             setModalGroup(INotFollowingBack)
             setModalTitle("Im Not Following Back")
         }
-        else if(kind === "Similar"){
+        else if (kind === "Similar") {
             setModalGroup(similarUser)
             setModalTitle("Similar Users")
         }
@@ -135,6 +135,8 @@ const Analystics = () => {
     }, [])
     return (
         <AanalysticsDiv>
+            <RefBox onClick={() => window.location.reload()} />
+            <br/>
             <h2>{sessionStorage.getItem('session')}</h2>
             <div style={{ display: "flex", justifyContent: "space-evenly" }}>
                 <PostsBox onClick={() => window.location.href = "/Analystics/posts"} />
@@ -163,7 +165,7 @@ const Analystics = () => {
                 >
                     <XButton onClick={closeModal} />
                     <UsersDiv>
-                        <h2 style={{textDecoration:"underline", fontWeight:"bold"}}>{modalTitle}</h2>
+                        <h2 style={{ textDecoration: "underline", fontWeight: "bold" }}>{modalTitle}</h2>
                         <SearchInput type="text" id="search" placeholder="Search User..." onChange={e => setSearchUser(e.target.value)}></SearchInput>
                         <br />
                         {

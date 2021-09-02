@@ -14,8 +14,8 @@ const About = () => {
                     Hey,
                     I'm Orel Kakon! <br />
                     I'm Software Engineer with B.Sc degree in Software Engineering from Ben Gurion University Of Negev.<br />
-                    Full stack developer with a lot experience in Web development, System design and Complex application. <br />
-                    Love to solve problems, design systems, learn new things and share my experience with others. <br />
+                    Full Stack developer with a lot experience in Web development.<br />
+                    This website is cool and useful tool, Im developed this for everyone, Welcome and Enjoy 😃.<br />
                 </p>
                 <br /><br />
                 <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -23,7 +23,6 @@ const About = () => {
                     <a href="mailto:orelkak@post.bgu.ac.il" style={{ textDecoration: "none", fontSize: "33px", color: "#fff", paddingRight: '6px' }}> <img src={mailLogo} alt="phoneLogo" height="30px" /></a>
                     <a href="tel:+97254-4650-494" style={{ textDecoration: "none", fontSize: "33px", color: "#fff", paddingRight: '2px' }}> <img src={phoneLogo} alt="phoneLogo" height="30px" /></a>
                     <a href="https://il.linkedin.com/in/orel-kakon-323928218" style={{ textDecoration: "none", fontSize: "33px", color: "#fff" }}> <img src={linkedinLogo} alt="linkedinLogo" height="36px" /></a>
-
                 </div>
                 <br/><br/><br/><br/><br/>
             </div>

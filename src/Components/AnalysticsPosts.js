@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { AanalysticsDiv, PostCatagoryBox, XButton, UsersDiv } from './index'
+import { AanalysticsDiv, PostCatagoryBox, XButton, UsersDiv, BackBox } from './index'
 import goodLogo from './../Assets/good.png'
 import badLogo from './../Assets/bad.png'
 import Modal from 'react-modal';
@@ -96,6 +96,8 @@ const AnalysticPosts = () => {
     }, [])
     return (
         <AanalysticsDiv>
+            <BackBox onClick={() => window.location.href = "/Analystics"} />
+            <br />
             <Modal
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
